@@ -1,0 +1,336 @@
+
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+-->
+<playlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../TKG/playlist.xsd">
+<test>
+    <testCaseName>jcstress_LongAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t LongAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_VolatileFloatAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t VolatileFloatAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_FloatAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t FloatAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_ByteAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t ByteAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_CharAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t CharAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_VolatileDoubleAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t VolatileDoubleAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_DoubleAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t DoubleAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_IntAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t IntAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_ShortAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t ShortAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_VolatileByteAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t VolatileByteAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_VolatileIntAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t VolatileIntAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_VolatileLongAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t VolatileLongAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_VolatileShortAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t VolatileShortAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_VolatileCharAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t VolatileCharAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_LongAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t LongAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_VolatileFloatAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t VolatileFloatAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_FloatAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t FloatAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_ByteAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t ByteAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_CharAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t CharAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_VolatileDoubleAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t VolatileDoubleAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_DoubleAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t DoubleAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_IntAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t IntAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_ShortAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t ShortAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_VolatileByteAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t VolatileByteAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_VolatileIntAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t VolatileIntAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_VolatileLongAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t VolatileLongAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_VolatileShortAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t VolatileShortAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_VolatileCharAtomicityTest</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t VolatileCharAtomicityTest$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+<test>
+    <testCaseName>jcstress_Constants</testCaseName>
+    <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t Constants$(Q); \
+    $(TEST_STATUS)</command>
+    <levels>
+        <level>extended</level>
+    </levels>
+    <groups>
+        <group>system</group>
+    </groups>
+</test>
+</playlist>
