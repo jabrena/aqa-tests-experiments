@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class PlaylistGenerator {
 
@@ -37,7 +38,7 @@ public class PlaylistGenerator {
                 .map(String::valueOf)
                 .map(s -> s.replace(".java", ""))
                 .map(s -> decorate.apply(testTemplateBlock, s))
-                .reduce("", String::concat);
+                .collect(Collectors.joining());
 
         final String fileName = "playlist.xml";
         FileWriter myWriter = new FileWriter(fileName);
