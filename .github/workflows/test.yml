@@ -21,7 +21,7 @@ jobs:
         jdksource: 'customized'
         customizedSdkUrl: ${{ env.CUSTOMIZED_SDK_URL }} 
         #aqa-testsRepo: 'adoptium/aqa-tests:master'
-        aqa-testsRepo: 'jabrena:feature/dynamic-jcstress-playlist'
+        aqa-testsRepo: 'jabrena/aqa-tests:feature/dynamic-jcstress-playlist'
         build_list: 'system/jcstress'
         target: '_dev.system'
 
