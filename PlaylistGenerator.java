@@ -3,8 +3,11 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.function.BiFunction;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class PlaylistGenerator {
 
@@ -12,15 +15,25 @@ public class PlaylistGenerator {
 
         BiFunction<String, String, String> decorate = (template, param) -> template.replace("PARAM", param);
 
-        final String headerTemplateBlock = new String(Files.readAllBytes(Paths.get("./templates/header.txt")), "UTF-8");
-        final String footerTemplateBlock = new String(Files.readAllBytes(Paths.get("./templates/footer.txt")), "UTF-8");
-        final String testTemplateBlock = new String(Files.readAllBytes(Paths.get("./templates/test.txt")), "UTF-8");
+        Function<Path, String> loadContent = param -> {
+            try {
+                return new String(Files.readAllBytes(param), "UTF-8");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        };
+
+        Predicate<Path> validateJCStressTestAnnotation = param -> loadContent.apply(param).contains("@JCStressTest");
+
+        final String headerTemplateBlock = loadContent.apply(Paths.get("./templates/header.txt"));
+        final String footerTemplateBlock = loadContent.apply(Paths.get("./templates/footer.txt"));
+        final String testTemplateBlock = loadContent.apply(Paths.get("./templates/test.txt"));
 
         final String path = "./jcstress/tests-custom/src/main/java/org/openjdk/jcstress/tests";
         final String body = Files.walk(Paths.get(path))
                 .filter(Files::isRegularFile)
-                .filter(f -> f.toString().contains("tests/atomicity/primitives/"))//TODO Remove in some point
-                .map(f -> f.getFileName())
+                .filter(validateJCStressTestAnnotation)
+                .map(Path::getFileName)
                 .map(String::valueOf)
                 .map(s -> s.replace(".java", ""))
                 .map(s -> decorate.apply(testTemplateBlock, s))
