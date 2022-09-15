@@ -1,5 +1,5 @@
 .idea
-jcstress
 .DS_Store
 .gradle
 
+/jcstress/
