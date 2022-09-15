@@ -1,3 +1,5 @@
 .idea
 jcstress
 .DS_Store
+.gradle
+
