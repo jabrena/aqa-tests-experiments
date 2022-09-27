@@ -1,7 +1,7 @@
 	<test>
 		<testCaseName>jcstress_PARAM</testCaseName>
-		<command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-latest.jar$(Q) -jvmArgs $(Q)$(JVM_OPTIONS) -t PARAM$(Q); \
-		$(TEST_STATUS)</command>
+        <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-tests-all-20220908.jar$(Q) $(APPLICATION_OPTIONS) -t PARAM; \
+        $(TEST_STATUS)</command>
 		<levels>
 			<level>dev</level>
 		</levels>

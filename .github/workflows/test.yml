@@ -24,6 +24,8 @@ jobs:
         aqa-testsRepo: 'jabrena/aqa-tests:feature/dynamic-jcstress-playlist'
         build_list: 'system/jcstress'
         target: '_dev.system'
+        run_parallel: true
+        num_machines: 4 # number of machines we want to run
 
     - uses: actions/upload-artifact@v2
       if: always() # Always run this step (even if the tests failed)
