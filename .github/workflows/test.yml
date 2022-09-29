@@ -37,7 +37,7 @@ jobs:
           build_list: system/jcstress
           target: _dev.system
           run_parallel: ${{ inputs.runParallel }}
-          num_machines: 10 # number of machines we want to run
+          num_machines: 15 # number of machines we want to run
 
       - name: Archive parallelList - dev.system
         uses: actions/upload-artifact@v2
