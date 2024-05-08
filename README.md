@@ -17,8 +17,6 @@ git submodule update
 sdk env
 sdk install jbang
 jbang PlaylistGenerator.java  
-
-make _dev.system
 ```
 
 ## References
