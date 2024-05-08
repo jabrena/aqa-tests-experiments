@@ -1,12 +1,24 @@
 # aqa-tests-experiments
 
 ```
+          ____              _______        _       
+    /\   / __ \     /\     |__   __|      | |      
+   /  \ | |  | |   /  \ ______| | ___  ___| |_ ___ 
+  / /\ \| |  | |  / /\ \______| |/ _ \/ __| __/ __|
+ / ____ \ |__| | / ____ \     | |  __/\__ \ |_\__ \
+/_/    \_\___\_\/_/    \_\    |_|\___||___/\__|___/
+```
+
+A small development to contribute in the AQA-Tests initiative.
+
+```
 git submodule update
 
 sdk env
+sdk install jbang
 jbang PlaylistGenerator.java  
-
-make _dev.system
-
-https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.14.1%2B1/OpenJDK11U-jdk_x64_linux_hotspot_11.0.14.1_1.tar.gz
 ```
+
+## References
+
+- https://github.com/adoptium/aqa-tests
