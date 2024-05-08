@@ -9,7 +9,7 @@
 /_/    \_\___\_\/_/    \_\    |_|\___||___/\__|___/
 ```
 
-A small development to contribute in the AQA-Tests initiative.
+A small development to contribute into the AQA-Tests initiative.
 
 ```
 git submodule update
@@ -22,3 +22,4 @@ jbang PlaylistGenerator.java
 ## References
 
 - https://github.com/adoptium/aqa-tests
+- https://github.com/openjdk/jcstress
