@@ -1,0 +1,11 @@
+	<test>
+		<testCaseName>jcstress_PARAM</testCaseName>
+        <command>$(JAVA_COMMAND) $(JVM_OPTIONS) -jar $(Q)$(LIB_DIR)$(D)jcstress-tests-all-20240222.jar$(Q) $(APPLICATION_OPTIONS) -t PARAM; \
+        $(TEST_STATUS)</command>
+		<levels>
+			<level>dev</level>
+		</levels>
+		<groups>
+			<group>system</group>
+		</groups>
+	</test>

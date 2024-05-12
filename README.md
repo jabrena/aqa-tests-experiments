@@ -1,4 +1,4 @@
-# AQA-Tests Experiments
+# AQA-Tests // playlist-generators
 
 ```
           ____              _______        _       
@@ -9,18 +9,25 @@
 /_/    \_\___\_\/_/    \_\    |_|\___||___/\__|___/
 ```
 
-A small development to contribute into the AQA-Tests initiative.
+A small development to contribute to AQA-Tests.
 
 ```
 git submodule update
-
 sdk env
-sdk install jbang
-jbang PlaylistGenerator.java  
+
+./mvnw clean verify
+./mvnw clean verify -P aqa-tests
+
+./mvnw -V clean
+./mvnw prettier:write
+./mvnw versions:display-dependency-updates
+./mvnw versions:display-plugin-updates
+./mvnw help:active-profiles
 ```
 
 ## References
 
 - https://github.com/adoptium/aqa-tests
+- https://github.com/adoptium/TKG/blob/master/resources/playlist.xsd
 - https://github.com/openjdk/jcstress
 - https://www.jbang.dev/
