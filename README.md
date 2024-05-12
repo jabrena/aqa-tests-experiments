@@ -12,7 +12,7 @@
 A small development to contribute to AQA-Tests.
 
 ```
-git submodule update
+git submodule update --init --recursive
 sdk env
 
 ./mvnw clean verify
@@ -30,4 +30,3 @@ sdk env
 - https://github.com/adoptium/aqa-tests
 - https://github.com/adoptium/TKG/blob/master/resources/playlist.xsd
 - https://github.com/openjdk/jcstress
-- https://www.jbang.dev/
