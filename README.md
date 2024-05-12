@@ -1,4 +1,4 @@
-# AQA-Tests Experiments
+# AQA-Tests // playlist-generators
 
 ```
           ____              _______        _       
@@ -9,14 +9,17 @@
 /_/    \_\___\_\/_/    \_\    |_|\___||___/\__|___/
 ```
 
-A small development to contribute into the AQA-Tests initiative.
+A small development to contribute to AQA-Tests.
 
 ```
 git submodule update
-
 sdk env
-sdk install jbang
-jbang PlaylistGenerator.java  
+
+./mvnw exec:java -Dexec.mainClass="net.adoptopenjdk.generators.PlaylistGenerator"
+
+./mvnw -V clean
+./mvnw versions:display-dependency-updates
+./mvnw versions:display-plugin-updates
 ```
 
 ## References
