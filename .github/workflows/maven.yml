@@ -7,9 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: 'recursive'
-          token: ${{ secrets.PAT_TOKEN }}
+      - name: Update submodules
+        run: |
+          git submodule update --init --recursive
       - name: Cache
         uses: actions/cache@v3
         with:
