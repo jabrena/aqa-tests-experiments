@@ -16,7 +16,7 @@ class PlaylistValidatorTests {
     void shouldBeAValidPlaylist() {
         //Given
         String xmlFilePath = "./playlist.xml";
-        String xsdFilePath = "./playlist.xsd";
+        String xsdFilePath = "./src/main/schemas/playlist.xsd";
 
         //When
         boolean result = false;
