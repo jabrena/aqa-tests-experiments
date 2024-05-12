@@ -77,6 +77,7 @@ public class PlaylistGenerator {
                 })
                 .filter(Files::isRegularFile)
                 .filter(validateJCStressTestAnnotation)
+                .peek(System.out::println)
                 .map(transformIntoPlaylistTestformat)
                 .collect(Collectors.joining());
 
