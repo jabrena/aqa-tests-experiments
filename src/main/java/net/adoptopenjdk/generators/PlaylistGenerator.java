@@ -1,5 +1,6 @@
 package net.adoptopenjdk.generators;
 
+import com.github.lalyos.jfiglet.FigletFont;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,6 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.function.BiFunction;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -14,6 +16,15 @@ import java.util.stream.Collectors;
 public class PlaylistGenerator {
 
     public static void main(String... args) {
+        Consumer<String> showHeader = param -> {
+            try {
+                String asciiArt = FigletFont.convertOneLine(param);
+                System.out.println(asciiArt);
+            } catch (Exception e) {
+                //Empty on purpose
+            }
+        };
+
         BiFunction<String, String, String> decorate = (template, param) -> template.replace("PARAM", param);
 
         Function<Path, String> loadContent = param -> {
@@ -26,11 +37,13 @@ public class PlaylistGenerator {
 
         Predicate<Path> validateJCStressTestAnnotation = param -> loadContent.apply(param).contains("@JCStressTest");
 
-        final String headerTemplateBlock = loadContent.apply(Paths.get("./templates/header.txt"));
-        final String footerTemplateBlock = loadContent.apply(Paths.get("./templates/footer.txt"));
-        final String testTemplateBlock = loadContent.apply(Paths.get("./templates/test.txt"));
+        final String headerTemplateBlock = loadContent.apply(Paths.get("./src/main/resources/templates/header.txt"));
+        final String footerTemplateBlock = loadContent.apply(Paths.get("./src/main/resources/templates/footer.txt"));
+        final String testTemplateBlock = loadContent.apply(Paths.get("./src/main/resources/templates/test.txt"));
 
-        Function<List<String>, String> generatePlaylistContents = param -> {
+        Function<List<String>, String> generatePlaylist = param -> {
+            showHeader.accept("AQA - Tests");
+
             return param
                 .stream()
                 .flatMap(path -> {
@@ -49,7 +62,7 @@ public class PlaylistGenerator {
                 .collect(Collectors.joining());
         };
 
-        Function<String, String> writePlaylist = body -> {
+        Function<String, String> write = body -> {
             final String fileName = "playlist.xml";
             try {
                 FileWriter myWriter = new FileWriter(fileName);
@@ -61,6 +74,7 @@ public class PlaylistGenerator {
                 throw new RuntimeException(e);
             }
 
+            System.out.println("playlist generated for jcstress tests.");
             return "";
         };
 
@@ -69,6 +83,6 @@ public class PlaylistGenerator {
             "./jcstress/jcstress-samples/src/main/java/org/openjdk/jcstress/samples"
         );
 
-        generatePlaylistContents.andThen(writePlaylist).apply(paths);
+        generatePlaylist.andThen(write).apply(paths);
     }
 }

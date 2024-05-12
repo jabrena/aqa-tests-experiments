@@ -13,6 +13,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.github.lalyos</groupId>
+            <artifactId>jfiglet</artifactId>
+            <version>0.0.9</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
 
@@ -125,24 +133,6 @@
             </plugin>
 
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.2.0</version><!-- Specify the version you're using -->
-                <executions>
-                    <execution>
-                        <id>execution1</id>
-                        <phase>verify</phase><!-- Bind to the verify phase -->
-                        <goals>
-                            <goal>java</goal><!-- Use 'java' goal to execute a Java class -->
-                        </goals>
-                        <configuration>
-                            <mainClass>net.adoptopenjdk.generators.PlaylistGenerator</mainClass>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
             </plugin>
@@ -153,4 +143,32 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>aqa-tests</id>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>3.2.0</version><!-- Specify the version you're using -->
+                        <executions>
+                            <execution>
+                                <id>execution1</id>
+                                <phase>verify</phase><!-- Bind to the verify phase -->
+                                <goals>
+                                    <goal>java</goal><!-- Use 'java' goal to execute a Java class -->
+                                </goals>
+                                <configuration>
+                                    <mainClass>net.adoptopenjdk.generators.PlaylistGenerator</mainClass>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
