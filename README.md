@@ -13,6 +13,7 @@ A small development to contribute to AQA-Tests.
 
 ```
 git submodule update --init --recursive
+git submodule update --remote
 sdk env
 
 ./mvnw clean verify
@@ -30,3 +31,4 @@ sdk env
 - https://github.com/adoptium/aqa-tests
 - https://github.com/adoptium/TKG/blob/master/resources/playlist.xsd
 - https://github.com/openjdk/jcstress
+- https://git-scm.com/book/en/v2/Git-Tools-Submodules
