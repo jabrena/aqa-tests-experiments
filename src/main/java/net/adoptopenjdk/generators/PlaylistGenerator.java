@@ -1,8 +1,10 @@
 package net.adoptopenjdk.generators;
 
 import com.github.lalyos.jfiglet.FigletFont;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -12,6 +14,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class PlaylistGenerator {
 
@@ -35,16 +38,35 @@ public class PlaylistGenerator {
             }
         };
 
+        Function<String, String> loadTemplate = param -> {
+            try {
+                ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+                File file = new File(classloader.getResource(param).getFile());
+                return new String(Files.readAllBytes(file.toPath()), StandardCharsets.UTF_8);
+            } catch (IOException e) {
+                throw new RuntimeException(e.getLocalizedMessage(), e);
+            }
+        };
+
         Predicate<Path> validateJCStressTestAnnotation = param -> loadContent.apply(param).contains("@JCStressTest");
 
-        final String headerTemplateBlock = loadContent.apply(Paths.get("./src/main/resources/templates/header.txt"));
-        final String footerTemplateBlock = loadContent.apply(Paths.get("./src/main/resources/templates/footer.txt"));
-        final String testTemplateBlock = loadContent.apply(Paths.get("./src/main/resources/templates/test.txt"));
+        Function<Path, String> transformIntoPlaylistTestformat = param -> {
+            final String testTemplateBlock = loadTemplate.apply("templates/test.txt");
+
+            return Stream
+                .of(param)
+                .map(Path::getFileName)
+                .map(String::valueOf)
+                .map(s -> s.replace(".java", ""))
+                .map(s -> decorate.apply(testTemplateBlock, s))
+                .findFirst()
+                .orElse(null);
+        };
 
         Function<List<String>, String> generatePlaylist = param -> {
             showHeader.accept("AQA - Tests");
 
-            return param
+            final String body = param
                 .stream()
                 .flatMap(path -> {
                     try {
@@ -55,20 +77,24 @@ public class PlaylistGenerator {
                 })
                 .filter(Files::isRegularFile)
                 .filter(validateJCStressTestAnnotation)
-                .map(Path::getFileName)
-                .map(String::valueOf)
-                .map(s -> s.replace(".java", ""))
-                .map(s -> decorate.apply(testTemplateBlock, s))
+                .map(transformIntoPlaylistTestformat)
                 .collect(Collectors.joining());
+
+            final String headerTemplateBlock = loadTemplate.apply("./templates/header.txt");
+            final String footerTemplateBlock = loadTemplate.apply("./templates/footer.txt");
+
+            StringBuilder sb = new StringBuilder();
+            sb.append(headerTemplateBlock);
+            sb.append(body);
+            sb.append(footerTemplateBlock);
+            return sb.toString();
         };
 
         Function<String, String> write = body -> {
             final String fileName = "playlist.xml";
             try {
                 FileWriter myWriter = new FileWriter(fileName);
-                myWriter.write(headerTemplateBlock);
                 myWriter.write(body);
-                myWriter.write(footerTemplateBlock);
                 myWriter.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
