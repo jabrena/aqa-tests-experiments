@@ -1,3 +1,0 @@
-[submodule "jcstress"]
-	path = jcstress
-	url = https://github.com/jabrena/jcstress
