@@ -18,7 +18,7 @@ import java.util.stream.Stream;
 
 public class PlaylistGenerator {
 
-    public static void main(String... args) {
+    public void generate(List<String> paths) {
         Consumer<String> showHeader = param -> {
             try {
                 String asciiArt = FigletFont.convertOneLine(param);
@@ -105,12 +105,6 @@ public class PlaylistGenerator {
             return "";
         };
 
-        //Execution
-
-        final List<String> paths = List.of(
-            "./jcstress/tests-custom/src/main/java/org/openjdk/jcstress/tests",
-            "./jcstress/jcstress-samples/src/main/java/org/openjdk/jcstress/samples"
-        );
         showHeader.accept("AQA - Tests");
         generatePlaylist.andThen(write).apply(paths);
     }

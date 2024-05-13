@@ -184,7 +184,7 @@
                                     <goal>java</goal><!-- Use 'java' goal to execute a Java class -->
                                 </goals>
                                 <configuration>
-                                    <mainClass>net.adoptopenjdk.generators.PlaylistGenerator</mainClass>
+                                    <mainClass>net.adoptopenjdk.generators.PlaylistGeneratorExample</mainClass>
                                 </configuration>
                             </execution>
                         </executions>
